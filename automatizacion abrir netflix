@@ -1,0 +1,25 @@
+package netflix;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import java.util.concurrent.TimeUnit;
+public class Alejo {
+    WebDriver driver;
+    @Test
+    public void Alejo() {
+        // Damos la ubicación del driver
+        System.setProperty("webdriver.chrome.driver", "C:/Drivers/chome/chromedriver.exe");
+        // Condiciones que queremos al momento de ejecutar nuestro navegador
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+        options.addArguments("--remote-allow-origins=*");
+        // Instanciamos el chrome driver para abrir el navegador
+        driver = new ChromeDriver(options);
+        // URL a la que se quiere automatizar
+        driver.get("https://www.netflix.com/co/login");
+        // Tiempo implícito en el cual el navegador espera a que los elementos estén presentes
+        driver.manage().timeouts().implicitlyWait(9, TimeUnit.MINUTES);
+        // Resto del código...
+    }
+}
